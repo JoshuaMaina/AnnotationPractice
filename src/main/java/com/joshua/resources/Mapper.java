@@ -5,17 +5,26 @@ import com.joshua.annotations.Id;
 import com.joshua.annotations.Table;
 
 import java.lang.reflect.Field;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.StringJoiner;
-import java.util.function.Function;
 
 public interface Mapper {
     String getStatement(Class<?> cls);
     String getStatement(Field field);
     String getStatement(Field[] fields);
     Field getId(Field[] fields);
+
     static Mapper getMapper(){
         return new MapperImpl();
     }
+
+     Map<Class<?>, String> typeMap = new HashMap<>(Map.of(
+            Integer.class, "int",
+            Double.class, "double",
+            String.class, "varchar(255)",
+            Long.class, "int"
+    ));
 
     default String fieldName(Field field) {
         Column columnAnn = field.getDeclaredAnnotation(Column.class);
@@ -25,7 +34,7 @@ public interface Mapper {
     }
 
     default String fieldType(Field field) {
-        return "varchar(255)";
+        return typeMap.getOrDefault(field.getType(), "varchar(255)");
     }
 
     default String fieldArguments(Field field) {
