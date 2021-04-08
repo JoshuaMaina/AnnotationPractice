@@ -9,7 +9,6 @@ import java.util.Map;
 
 // Ps, I know it's not the best code haha. I'm just playing around with concepts right now
 
-//TODO Try and implement a full function that works for an entity
 //TODO Use Reflection to search for the other classes with @Entity annotation
 //TODO Generate multiple 'SQL Statements' for the variety of classes
 public class Main {
