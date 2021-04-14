@@ -20,10 +20,10 @@ public interface Mapper {
     }
 
      Map<Class<?>, String> typeMap = new HashMap<>(Map.of(
-            Integer.class, "int",
-            Double.class, "double",
+            Integer.TYPE, "int",
+            Double.TYPE, "double",
             String.class, "varchar(255)",
-            Long.class, "int"
+            Long.TYPE, "int"
     ));
 
     default String fieldName(Field field) {

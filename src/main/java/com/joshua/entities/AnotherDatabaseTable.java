@@ -1,19 +1,18 @@
 package com.joshua.entities;
 
+
 import com.joshua.annotations.Column;
 import com.joshua.annotations.Entity;
 import com.joshua.annotations.Id;
 import com.joshua.annotations.Table;
 
 @Entity
-@Table(name = "Database_Table")
-public class DatabaseTable {
+@Table(name = "Another_Database_Table")
+public class AnotherDatabaseTable {
     @Id
-    @Column(name = "entity_id")
     private int id;
 
-    @Column(name = "entity_description")
     private String description;
 
-    private String unnamed;
+    private String anotherField;
 }
